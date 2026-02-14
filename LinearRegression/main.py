@@ -15,7 +15,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 
 class LinearRegression:
-    def __init__(self, lr=0.001, n_iters=1000, marker="o", s=30):
+    def __init__(self, lr=0.001, n_iters=1000):
         self.lr = lr
         self.n_iters = n_iters
         self.weights = None

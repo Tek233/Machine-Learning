@@ -2,12 +2,12 @@ from collections import Counter
 
 import numpy as np
 from matplotlib.colors import ListedColormap
-
-cmap = ListedColormap(["red", "green", "blue"])
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 
 from helpers import euclidean_distance
+
+cmap = ListedColormap(["red", "green", "blue"])
 
 
 class KNN:
