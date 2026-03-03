@@ -35,12 +35,9 @@ class NaiveBayes:
         for c in self.priors.keys():
             mean = self.means[c]
             var = self.variances[c]
-            prior = self.priors[c]
-            dom = 1 / (np.sqrt(2 * np.pi * var))
-            num = np.exp((-((x - mean) ** 2)) / (2 * var))
-            prob_feature = num * dom
-            total = np.prod(prob_feature)
-            prob[c] = prior * total
+            prior = np.log(self.priors[c])
+            log_pdf = -0.5 * np.log(2 * np.pi * var) - ((x - mean) ** 2 / (2 * var))
+            prob[c] = prior + np.sum(log_pdf)
         print(f"\nPrrrr: {prob}\n")
         return max(prob, key=prob.get)
 
